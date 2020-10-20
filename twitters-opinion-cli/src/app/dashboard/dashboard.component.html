@@ -1,0 +1,45 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Create new sentiment analysis job</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form class="">
+            <div class="input-group mr-2">
+                <input name="searchTerm" style="margin: 5px; float: left;" [(ngModel)]="searchTerm" class="form-control" type="text" placeholder="Search term" aria-label="Search" />
+            </div>
+            <div class="form-group d-flex align-items-center">
+                <div class="input-group mr-2">
+                    <input class="form-control" placeholder="choose start date" name="dp" [(ngModel)]="startDate" ngbDatepicker #d1="ngbDatepicker" />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <ngb-timepicker name="dp" [(ngModel)]="startTime"></ngb-timepicker>
+            </div>
+            <p class="text-center">Choose interval:</p>
+            <div class="btn-group btn-group-toggle form-group d-flex align-items-center" ngbRadioGroup name="radioBasic" [(ngModel)]="interval">
+                <label ngbButtonLabel class="btn-primary"> <input ngbButton type="radio" value="hour" /> Every hour </label>
+                <label ngbButtonLabel class="btn-primary"> <input ngbButton type="radio" value="day" /> Every day </label>
+            </div>
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-info btn-unique btn-rounded my-0 waves-effect waves-light" type="submit" (click)="createNewJob()">Create</button>
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>
+<div style="width: 100%; margin: 15px; text-align: center;">
+    <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentered(content)">Create new sentiment analysis job</button>
+</div>
+<div *ngFor="let chart of charts" style="display: block; width: 48%; float: left; text-align: center; margin: 1%; font-size: large; border: groove; border-radius: 15px;">
+    <p style="font-weight: bold;">{{chart.searchTerm}}</p>
+    <canvas mdbChart [chartType]="chartType" [datasets]="chart.chartData" [labels]="chart.chartLabels" [colors]="chartColors" [options]="chartOptions" [legend]="true" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+    </canvas>
+</div>

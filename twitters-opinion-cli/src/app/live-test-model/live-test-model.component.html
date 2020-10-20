@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-12">
+        <!-- <div class="text-center">
+            <img src="assets/img/logo.png" class="img-fluid" alt="">
+        </div> -->
+
+        <div class="justify-content-md-center">
+
+            <!--Grid column-->
+            <br>
+                <p class="text text-center">Test the model with your sentence:</p>
+                <br>
+                <form #form="ngForm" class="form-inline md-form mr-auto justify-content-md-center">
+                <input name="query" [(ngModel)]="query" class="form-control mr-lg-6 " type="text" placeholder="This app is great!" aria-label="Search">
+                <button class="btn btn-unique btn-rounded btn-primary btn-lg my-0 waves-effect waves-light" type="submit" (click)="onSubmit()">Test</button>
+                </form>
+        <br>
+                <p *ngIf="score" class="text text-center">Score: {{score}}</p>
+                <p *ngIf="label" class="text text-center">Label: {{label}}</p>
+        </div>
+        <br>
+            <div *ngIf="score" class="text-center" >
+                <img src='{{imgSrc}}' class="img-fluid" alt="" style="width: 300px;">
+            </div>
+    </div>
+</div>

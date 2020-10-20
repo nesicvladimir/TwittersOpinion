@@ -1,0 +1,50 @@
+
+    <div class="row">
+        <div class="col-9">
+            <div class="text-center">
+                <img src="assets/img/logo.png" class="img-fluid" alt="">
+            </div>
+
+            <div class="justify-content-md-center">
+
+                <!--Grid column-->
+                    <p class="text text-center">Check what Twitter thinks about:</p>
+                    <form #form="ngForm" class="form-inline md-form mr-auto justify-content-md-center">
+                    <input name="query" [(ngModel)]="query" class="form-control mr-sm-2 " type="text" placeholder="Example: Ronaldo" aria-label="Search">
+                    <button class="btn btn-info btn-unique btn-rounded my-0 waves-effect waves-light" type="submit" (click)="onSubmit()">Check</button>
+                    </form>
+                    <br>
+                    <div class ="row justify-content-md-center">
+                        <div class="custom-control custom-checkbox checkbox-lg">
+                            <input type="checkbox" class="custom-control-input" id="exampleCheck1" [(ngModel)]="useTimeFilter">
+                            <label class="custom-control-label" for="exampleCheck1">Use filter by time</label>
+                        </div>
+                        <div class="input-group dateInput">
+                            <input class="form-control dateInputBox" [ngModel]="dateSince" (ngModelChange)="setSinceDate($event)" placeholder="From Date" name="ds" ngbDatepicker
+                            #ds="ngbDatepicker" [minDate]="selectLastWeekDay()" [maxDate]="selectToday()" [disabled]=!useTimeFilter>
+                            <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="ds.toggle()" type="button" [disabled]="!useTimeFilter">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </button>
+                            </div>
+                        </div>
+                        <div class="input-group dateInput">
+                            <input class="form-control dateInputBox" [ngModel]="dateUntil" (ngModelChange)="setUntilDate($event)" placeholder="To Date" name="du" ngbDatepicker
+                            #du="ngbDatepicker" [minDate]="dateSince" [maxDate]="selectToday()" [disabled]=!enableDateUntil>
+                            <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="du.toggle()" type="button" [disabled]="!enableDateUntil">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            
+        </div>
+      
+        
+        <div class="col-2">
+            <app-top-searches></app-top-searches>
+        </div>
+    </div>

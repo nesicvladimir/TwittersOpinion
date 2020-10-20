@@ -1,0 +1,91 @@
+<br>
+<br>
+<ng-container>
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<p [hidden]=!showLabel class="text text-center" style="font-size: 30px;">Twitters opinion about: {{query}}</p>
+<div id="chartdiv">
+</div>
+ <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+    <p style="color: white">Please Wait. </p>  
+    </ngx-spinner>    
+</ng-container>
+
+<!--  <ng-template #modalBoxPos let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Positive tweets:</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table">
+    <thead class="thead-light">
+        <tr>
+        <th scope="col" >Text</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tweet of chartData[0].tweets">    
+        <td>{{tweet}}</td>
+        </tr>
+    </tbody>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="closeModal()">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #modalBoxNeg let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Negative tweets:</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table">
+    <thead class="thead-light">
+        <tr>
+        <th scope="col" >Text</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tweet of chartData[1].tweets">    
+        <td>{{tweet}}</td>
+        </tr>
+    </tbody>
+    </table>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="closeModal()">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #modalBoxNeu let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Neutral tweets:</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table">
+    <thead class="thead-light">
+        <tr>
+        <th scope="col" >Text</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tweet of chartData[2].tweets">    
+        <td>{{tweet}}</td>
+        </tr>
+    </tbody>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="closeModal()">Close</button>
+  </div>
+</ng-template>  -->

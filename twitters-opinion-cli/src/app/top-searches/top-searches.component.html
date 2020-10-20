@@ -1,0 +1,14 @@
+<br>
+<br>
+<div class="container">
+<h4 id="header">Top 10 searches</h4>
+<table class="table table-light">
+
+  <tbody>
+    <tr *ngFor="let search of topSearches">    
+        <td>{{search.text}}</td>
+        <td>{{search.total}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
